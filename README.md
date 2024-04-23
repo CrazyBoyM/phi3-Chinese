@@ -13,7 +13,7 @@ phi3以小搏大（从微软放出的跑分数据看），用不到1/2的小体�
 
 ## 网页部署
 ```
-streamlit run streamlit_for_instruct ./Phi-3-mini-128k-instruct-Chinese
+streamlit run deploy/streamlit_for_instruct.py ./Phi-3-mini-128k-instruct-Chinese
 ```
 <img width="1422" alt="image" src="https://github.com/CrazyBoyM/phi3-Chinese/assets/35400185/f77754e7-016b-4a66-9d8c-3e493faa11cb">
 
