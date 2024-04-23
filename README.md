@@ -6,4 +6,4 @@ phi3以小搏大，用不到1/2的小体积（3.8b）超越llama3 8b版性能表
 ## Chat模型下载
 - Phi-3-mini-128k-instruct-Chinese
   - 增量SFT版本：https://huggingface.co/shareAI/Phi-3-mini-128k-instruct-Chinese (训练中)
-  - DPO版本：待进行
+  - 直接DPO版本：待进行
