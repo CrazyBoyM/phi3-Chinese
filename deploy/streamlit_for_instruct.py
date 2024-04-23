@@ -16,7 +16,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import PeftModel
 
 logger = logging.get_logger(__name__)
-st.set_page_config(page_title="Llama3-Chinese")
+st.set_page_config(page_title="Phi3-Chinese")
 
 import argparse
 
@@ -200,6 +200,7 @@ def load_model(model_name_or_path, adapter_name_or_path=None, load_in_4bit=False
 def prepare_generation_config():
     with st.sidebar:
         st.title('超参数面板')
+        # 大输入框
         system_prompt_content = st.text_area('系统提示词',
             "你是一个有创造的超级人工智能assistant,名字叫Phi3-Chinese,拥有全人类的所有知识。"
             "你喜欢用幽默风趣的语言回复用户，但你更喜欢用准确、深入的答案。"
@@ -225,10 +226,10 @@ def prepare_generation_config():
 
     return generation_config
 
-system_prompt = '<|begin_of_text|><<SYS>>\n{content}\n<</SYS>>\n\n'
-user_prompt = '<|start_header_id|>user<|end_header_id|>\n\n{user}<|eot_id|>'
-robot_prompt = '<|start_header_id|>assistant<|end_header_id|>\n\n{robot}<|eot_id|>'
-cur_query_prompt = '<|start_header_id|>user<|end_header_id|>\n\n{user}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n'
+system_prompt = '<|system|>\n{content}<|end|>'
+user_prompt = '<|user|>\n{content}<|end|>\n'
+robot_prompt = '<|assistant|>{content}<|end|>\n'
+cur_query_prompt = '<|user|>\n{content}<|end|>\n<|assistant|>'
 
 
 def combine_history(prompt):
@@ -237,16 +238,16 @@ def combine_history(prompt):
     for message in messages:
         cur_content = message['content']
         if message['role'] == 'user':
-            cur_prompt = user_prompt.format(user=cur_content)
+            cur_prompt = user_prompt.format(content=cur_content)
         elif message['role'] == 'robot':
-            cur_prompt = robot_prompt.format(robot=cur_content)
+            cur_prompt = robot_prompt.format(content=cur_content)
         else:
             raise RuntimeError
         total_prompt += cur_prompt
 
     system_prompt_content = st.session_state.system_prompt_content
     system = system_prompt.format(content=system_prompt_content)
-    total_prompt = system + total_prompt + cur_query_prompt.format(user=prompt)
+    total_prompt = system + total_prompt + cur_query_prompt.format(content=prompt)
     
     return total_prompt
 
@@ -257,7 +258,7 @@ def main(model_name_or_path, adapter_name_or_path):
     model, tokenizer = load_model(model_name_or_path, adapter_name_or_path=adapter_name_or_path, load_in_4bit=False)
     print('load model end.')
 
-    st.title('Llama3-Chinese')
+    st.title('Phi3-Chinese')
 
     generation_config = prepare_generation_config()
 
