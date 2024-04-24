@@ -4,12 +4,20 @@ phi3以小搏大（从微软放出的跑分数据看），用不到1/2的小体�
 同时也会顺便整理phi相关训练、推理、部署的简单教程。  
 
 ## Chat模型下载
-- Phi-3-mini-128k-instruct-Chinese（英文原版）：https://huggingface.co/microsoft/Phi-3-mini-128k-instruct
+### Phi-3-chinese
 - Phi-3-mini-128k-instruct-Chinese
   - 增量SFT版本：
     - modelscope: https://modelscope.cn/models/baicai003/Phi-3-mini-128k-instruct-Chinese/summary
   - 直接DPO版本：待进行
   - 扩充词表版本：计划中
+
+### Hugging Face（英文原版）
+- Phi-3-mini-128k-instruct：https://huggingface.co/microsoft/Phi-3-mini-128k-instruct
+- Phi-3-mini-4k-instruct：https://huggingface.co/microsoft/Phi-3-mini-4k-instruct
+
+### ModelScope（英文原版）
+- Phi-3-mini-128k-instruct：https://modelscope.cn/models/LLM-Research/Phi-3-mini-128k-instruct/summary
+- Phi-3-mini-4k-instruct：https://modelscope.cn/models/LLM-Research/Phi-3-mini-4k-instruct/summary
 
 ## 网页部署
 ```
