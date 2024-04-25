@@ -8,7 +8,7 @@ phi3以小搏大（从微软放出的跑分数据看），用不到1/2的小体�
 - Phi-3-mini-128k-instruct-Chinese
   - 增量SFT版本：
     - modelscope: https://modelscope.cn/models/baicai003/Phi-3-mini-128k-instruct-Chinese/summary
-  - 直接DPO版本：待进行
+  - 直接DPO版本：https://modelscope.cn/models/zhuangxialie/Phi-3-Chinese-ORPO/summary
   - 扩充词表版本：计划中
 
 ### Hugging Face（英文原版）
