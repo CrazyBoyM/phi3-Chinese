@@ -1,4 +1,4 @@
-# copied from https://github.com/SmartFlowAI/Llama3-XTuner-CN/blob/main/web_demo.py
+# modified from https://github.com/SmartFlowAI/Llama3-XTuner-CN/blob/main/web_demo.py
 # isort: skip_file
 import copy
 import warnings
